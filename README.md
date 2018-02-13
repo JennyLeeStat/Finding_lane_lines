@@ -1,5 +1,5 @@
 # Finding Lane Lines on the Road
----
+
 
 
 ## Overview
@@ -65,17 +65,24 @@ Canny edge detection to suppress noises.
 
 The figure below shows the detected edges. 
 It traced out our target pretty well.
+<img src="asset/canny.png" width="480" alt= "canny"/>
+
+
 
 ### 4) Hough transform line detection
 We further sift through the pixels associated edges to find straight lines. 
 Lines in the the Cartesian coordinate system correspond to 
 the sin curve in Polar coordinate system (Hough space). 
-If the curves of two points intersect, it means both points 
-belong to a same line.1 In general, a line can be declared by 
+If the curves of two points intersect in Hough space, it means both points 
+belong to a same line. In general, a line can be declared by 
 finding the intersection between curves.
 
 The selected grid resolution was: `theta = pi/180, rho = 2`. The 
 final parameter chosen were:`threshold = 50, min_line_len = 50, max_line_gap = 50`.
+
+<img src="asset/hough.png" width="480" alt= "hough"/>
+
+
 
 ### 5) Averaging and Extrapolating identified lines
 The identified lines in above figure can be further improved 
@@ -92,7 +99,7 @@ in terms of visual guidance for drivers. To map out sigle left lane
   The figure below displays the fully mapped out extrapolated/ 
   averaged lane lines annotated on a test image.
 
-<img src="asset/final.png" width="960" alt= "final"/>
+<img src="asset/final.png" width="480" alt= "final"/>
 
 
 ## Result
